@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Эко-монитор Россия</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><img src="../icons/icon48.png" alt="Иконка"> Эко-монитор Россия</h1>
+            
+            <div class="city-selector">
+                <select id="city-select">
+                    <option value="lipetsk">Липецк</option>
+                    <option value="moscow">Москва</option>
+                    <option value="petersburg">Санкт-Петербург</option>
+                </select>
+                <div class="city-info" id="city-info"></div>
+            </div>
+            
+            <div class="last-update">Обновлено: <span id="update-time">--:--</span></div>
+        </header>
+
+        <div class="status-card" id="air-quality">
+            <h2>🌤️ Качество воздуха</h2>
+            <div class="value" id="aqi-value">--</div>
+            <div class="description" id="aqi-desc">Загрузка...</div>
+            <div class="source">Источник: <span id="air-source">Загрузка...</span></div>
+        </div>
+
+        <div class="status-card" id="pollution">
+            <h2>🏭 Загрязнение</h2>
+            <div class="pollutant">
+                <span>PM2.5:</span>
+                <span class="value" id="pm25">-- µg/m³</span>
+            </div>
+            <div class="pollutant">
+                <span>PM10:</span>
+                <span class="value" id="pm10">-- µg/m³</span>
+            </div>
+            <div class="pollutant">
+                <span>NO₂:</span>
+                <span class="value" id="no2">--</span>
+            </div>
+            <div class="pollutant">
+                <span>O₃:</span>
+                <span class="value" id="o3">--</span>
+            </div>
+            <div class="pollutant">
+                <span>SO₂:</span>
+                <span class="value" id="so2">--</span>
+            </div>
+            <div class="pollutant">
+                <span>CO:</span>
+                <span class="value" id="co">--</span>
+            </div>
+        </div>
+
+        <div class="station-info" id="station-info">
+            <div class="station-name">Станция: <span id="station-name">--</span></div>
+            <div class="station-location">Район: <span id="station-area">--</span></div>
+        </div>
+
+        <div class="controls">
+            <button id="refresh-btn">🔄 Обновить</button>
+            <button id="options-btn">⚙️ Настройки</button>
+        </div>
+
+        <footer>
+            <div class="health-recommendations" id="recommendations">
+                Рекомендации появятся после анализа данных
+            </div>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

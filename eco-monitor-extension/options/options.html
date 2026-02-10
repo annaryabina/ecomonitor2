@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Настройки эко-монитора</title>
+    <link rel="stylesheet" href="options.css">
+    <style>
+        .info-box {
+            background: #e3f2fd;
+            border: 1px solid #2196F3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #1976D2;
+        }
+        .data-source {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚙️ Настройки эко-монитора Россия</h1>
+        
+        <div class="info-box">
+            <h3>📡 Источники данных</h3>
+            <p>Расширение собирает реальные данные с сайта AccuWeather:</p>
+            <div class="data-source">
+                <strong>Липецк:</strong> 
+                <a href="https://www.accuweather.com/ru/ru/lipetsk/293886/air-quality-index/293886" target="_blank">
+                    https://www.accuweather.com/ru/ru/lipetsk/293886/air-quality-index/293886
+                </a>
+            </div>
+            <div class="data-source">
+                <strong>Москва:</strong> 
+                <a href="https://www.accuweather.com/ru/ru/moscow/294021/air-quality-index/294021" target="_blank">
+                    https://www.accuweather.com/ru/ru/moscow/294021/air-quality-index/294021
+                </a>
+            </div>
+            <div class="data-source">
+                <strong>Санкт-Петербург:</strong> 
+                <a href="https://www.accuweather.com/ru/ru/saint-petersburg/295212/air-quality-index/295212" target="_blank">
+                    https://www.accuweather.com/ru/ru/saint-petersburg/295212/air-quality-index/295212
+                </a>
+            </div>
+            <p><em>Данные обновляются автоматически каждые 30 минут.</em></p>
+        </div>
+        
+        <div class="section">
+            <h2>Основные настройки</h2>
+            
+            <div class="setting">
+                <label for="default-city">Город по умолчанию:</label>
+                <select id="default-city">
+                    <option value="lipetsk">Липецк</option>
+                    <option value="moscow">Москва</option>
+                    <option value="petersburg">Санкт-Петербург</option>
+                </select>
+            </div>
+            
+            <div class="setting">
+                <label>
+                    <input type="checkbox" id="use-real-data" checked>
+                    Использовать реальные данные (парсинг с сайтов)
+                </label>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Пороги уведомлений</h2>
+            
+            <div class="setting">
+                <label for="aqi-threshold">Индекс AQI (0-500):</label>
+                <input type="range" id="aqi-threshold" min="0" max="300" step="10">
+                <span id="aqi-value">100</span>
+            </div>
+            
+            <div class="setting">
+                <label for="pm25-threshold">PM2.5 (µg/m³):</label>
+                <input type="range" id="pm25-threshold" min="0" max="100" step="5">
+                <span id="pm25-value">35</span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Уведомления</h2>
+            <div class="setting">
+                <label>
+                    <input type="checkbox" id="notifications-enabled" checked>
+                    Включать уведомления
+                </label>
+            </div>
+            
+            <div class="setting">
+                <label>Частота проверок:</label>
+                <select id="check-frequency">
+                    <option value="15">Каждые 15 минут</option>
+                    <option value="30" selected>Каждые 30 минут</option>
+                    <option value="60">Каждый час</option>
+                    <option value="240">Каждые 4 часа</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <button id="save-btn">💾 Сохранить</button>
+            <button id="test-btn">🧪 Тест парсинга</button>
+            <button id="reset-btn">🔄 Сбросить</button>
+            <button id="back-btn">← Назад</button>
+        </div>
+        
+        <div id="status-message"></div>
+        
+        <div id="test-results" style="display: none; margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+            <h3>Результаты теста парсинга:</h3>
+            <div id="test-output"></div>
+        </div>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>
